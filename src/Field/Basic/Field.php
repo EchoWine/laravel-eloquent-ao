@@ -18,6 +18,12 @@ class Field{
      */
     protected $value;
 
+    /**
+     * Schema instance.
+     *
+     * @var Schema
+     */
+    protected $schema;
 
     /**
      * Model
@@ -33,7 +39,26 @@ class Field{
      * @param string $name
      */
     public function __construct($name){
-    	$this -> name = $name;
+    	$this->name = $name;
+        $this->iniSchema();
+    }
+
+    /**
+     * Initialize schema
+     *
+     * @return void
+     */
+    public function iniSchema(){
+        // $this->schema = new Schema();
+    }
+
+    /**
+     * Get schema
+     *
+     * @return Schema
+     */
+    public function getSchema(){
+        return $this->schema;
     }
 
     /**
@@ -42,7 +67,7 @@ class Field{
      * @return string
      */
     public function getName(){
-    	return $this -> name;
+    	return $this->name;
     }
 
     /**
@@ -51,14 +76,14 @@ class Field{
      * @return mixed
      */
     public function getValue(){
-        return $this -> value;
+        return $this->value;
     }
 
     /**
      * Alias @getValue
      */
     public function get(){
-        return $this -> getValue();
+        return $this->getValue();
     }
 
     /**
@@ -67,7 +92,7 @@ class Field{
      * @param mixed $value
      */
     public function setValue($value){
-    	$this -> value = $value;
+    	$this->value = $value;
     }
 
     /**
@@ -76,18 +101,18 @@ class Field{
      * @return string
      */
     public function __toString(){
-        return (string)$this -> getValue();
+        return (string)$this->getValue();
     }
 
     public function setModel($model){
-        $this -> model = $model;
+        $this->model = $model;
     }
 
     public function getModel(){
-        return $this -> model;
+        return $this->model;
     }
 
     public function __call($method,$arguments){
-        return call_user_func_array([$this -> get(),$method],$arguments);
+        return call_user_func_array([$this->get(),$method],$arguments);
     }
 }

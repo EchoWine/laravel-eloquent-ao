@@ -24,9 +24,9 @@ class User extends Model{
     protected function attributes(AttributesBuilder $builder){
     	
     	$builder -> string('username')
-    		-> setMinLength(3)
-    		-> setMaxLength(10)
-    		-> setMatch("/^([a-zA-Z0-9])*$/");
+    		-> minLength(3)
+    		-> maxLength(10)
+    		-> match("/^([a-zA-Z0-9])*$/");
     }
 
 }

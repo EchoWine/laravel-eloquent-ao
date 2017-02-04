@@ -50,7 +50,7 @@ class AttributesBuilder{
 
         $this -> addField($field);
 
-        return $field;
+        return $field->getSchema() ? $field->getSchema() : $field;
 
     }
 }
