@@ -4,7 +4,8 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4" : {
-            "CoreWine\\Laravel\\ORM\\AttributeAsObject\\" : "src/"
+            "CoreWine\\ORM\\" : "src/",
+           	"CoreWine\\ORM\\Test\\": "tests/"
         }
     }
 }
