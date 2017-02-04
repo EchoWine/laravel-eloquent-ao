@@ -1,0 +1,13 @@
+- [x] Boolean
+- [x] String
+- [ ] Collections
+- [ ] Enum
+- [ ] Integer
+- [ ] Number
+- [ ] Price
+- [ ] Email
+- [ ] Password
+- [ ] Date
+- [ ] DateTime
+- [ ] File
+- [ ] Image
