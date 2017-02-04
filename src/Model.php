@@ -158,8 +158,15 @@ class Model extends EloquentModel{
     public function getAttribute($key)
     {
 
-        if($this -> isField($key))
-            return $this -> getField($key);
+        if($this -> isField($key)){
+
+            $object = $this -> getField($key) -> getValue();
+
+            if(is_object($object))
+                return $this -> getField($key);
+
+            return $this -> getField($key) -> getValue();
+        }
 
         return parent::getAttribute($key);
     }

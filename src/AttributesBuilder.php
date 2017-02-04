@@ -18,6 +18,7 @@ class AttributesBuilder{
      */
     protected $classes = [
         'string' => \CoreWine\ORM\Field\String\Field::class,
+        'boolean' => \CoreWine\ORM\Field\Boolean\Field::class,
     ];
 
     public function __construct(){}

@@ -2,10 +2,6 @@
 
 use Illuminate\Foundation\Testing\TestCase;
 
-use Illuminate\Database\Capsule\Manager as DataBase;
-use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container;
-
 use CoreWine\ORM\Test\Model\User;
 
 class StringTest extends TestCase{
@@ -22,9 +18,13 @@ class StringTest extends TestCase{
         $app -> make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
     }
-
+   /**
+     * Test basic setting/getting value.
+     *
+     * @return void
+     */
     public function testBasic(){
-    	
+        
         $user = new User();
 
         $user -> username = "foo";
@@ -37,7 +37,12 @@ class StringTest extends TestCase{
 
     }
 
-    public function testStringfy(){
+    /**
+     * Test methods of object.
+     *
+     * @return void
+     */
+    public function testObject(){
 
         $user = User::first();
         $user -> username = 'adminne';
@@ -78,7 +83,7 @@ class StringTest extends TestCase{
 
         # Invalid match
         $user -> username = "ffffff@."; 
-	
+    
     }
 
 }

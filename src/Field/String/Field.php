@@ -44,4 +44,13 @@ class Field extends Basic\Field{
 
     }
 
+    /**
+     * To string
+     *
+     * @return string
+     */
+    public function __toString(){
+        return (string)$this->getValue();
+    }
+
 }

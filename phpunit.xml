@@ -1,7 +1,8 @@
 <phpunit bootstrap="../../autoload.php">
   <testsuites>
-    <testsuite name="string">
+    <testsuite name="fields">
       <file>tests/StringTest.php</file>
+      <file>tests/BooleanTest.php</file>
     </testsuite>
   </testsuites>
 </phpunit>

@@ -27,6 +27,23 @@ class User extends Model{
     		-> minLength(3)
     		-> maxLength(10)
     		-> match("/^([a-zA-Z0-9])*$/");
+
+    	$builder -> boolean('active');
+
+    	/*
+    	$builder -> number('points')
+    		-> min(0)
+    		-> max(999)
+    		-> step(0.1)
+    		-> format(function($value){
+    			return number_format($value,2,",",".");
+    		});
+
+    	$builder -> collection('roles',function(AttributesBuilder $builder){
+    		$builder -> enum('role')
+    			-> values(['ADMIN','USER','GUETS']);
+    	});
+    	*/
     }
 
 }
