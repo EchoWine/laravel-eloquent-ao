@@ -1,6 +1,6 @@
 Laravel ORM - Attribute as an Object
 =====
-Threat your attributes as their deserve, as objects!
+Treat your attributes as their deserve, as objects!
 
 Installation
 ------------
@@ -44,46 +44,4 @@ class User extends Model{
     protected function attributes(AttributesBuilder $builder){
     	
     	$builder -> string('username')
-    		-> minLength(3)
-    		-> maxLength(10)
-    		-> match("/^([a-zA-Z0-9])*$/");
-            
-    	$builder -> boolean('active');
-    }
-
-}
-
-```
-Boolean
-------------
-Starting with the easiest one, only two values accepted (true,false) 
-
-```php
-    $user = User::first();
-    $user -> active = "true"; // true
-    $user -> active = "false"; // false
-    $user -> active = true; // true
-    $user -> active = 1; // true
-```
-
-String
-------------
-Thanks to magic methods editing the value of an attribute remains the same 
-
-```php
-    $user = User::first();
-    $user -> username = "Admin";
-    $user -> save();
-```
-
-But i told you, attributes are objects!
-
-```php
-    $user -> username -> toLowerCase(); // "admin"
-    $user -> username -> length(); // 5
-```
-
-The string field is currently using Stringy\Stringy, check all methods available here [danielstjules/Stringy][stringy]
-
-
-[stringy]:  https://github.com/danielstjules/Stringy
+    		-> minLength(3
