@@ -1,4 +1,22 @@
-Creating a Model
+Laravel ORM - Attribute as an Object
+=====
+Treat your attribute as their deserve, as objects!
+
+Installation
+------------
+Modify your composer.json and run `composer update`
+
+``` json
+{
+    "require": {
+        "echowine/laravel-orm-ao":"@dev"
+    }
+}
+```
+
+Defining a Model
+------------
+
 
 ```php
 
@@ -32,3 +50,23 @@ class User extends Model{
     }
 
 }
+```
+
+String
+------------
+Thanks to magic methods editing the value of an attribute remains the same 
+
+```php
+    $user = User::first();
+    $user -> username = "Admin";
+    $user -> save();
+```
+
+But i told you, the attributes are objects!
+
+```php
+    $user -> username -> toLoweCase(); // "admin"
+    $user -> username -> length(); // 5
+```
+
+The string field is currently using Stringy\Stringy so all methods is available
