@@ -47,9 +47,23 @@ class User extends Model{
     		-> minLength(3)
     		-> maxLength(10)
     		-> match("/^([a-zA-Z0-9])*$/");
+            
+    	$builder -> boolean('active');
     }
 
 }
+
+```
+Boolean
+------------
+Starting with the easiest one, only two values accepted (true,false) 
+
+```php
+    $user = User::first();
+    $user -> active = "true"; // true
+    $user -> active = "false"; // false
+    $user -> active = true; // true
+    $user -> active = 1; // true
 ```
 
 String
@@ -65,7 +79,7 @@ Thanks to magic methods editing the value of an attribute remains the same
 But i told you, the attributes are objects!
 
 ```php
-    $user -> username -> toLoweCase(); // "admin"
+    $user -> username -> toLowerCase(); // "admin"
     $user -> username -> length(); // 5
 ```
 
