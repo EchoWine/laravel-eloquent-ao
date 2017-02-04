@@ -1,6 +1,6 @@
 Laravel ORM - Attribute as an Object
 =====
-Treat your attribute as their deserve, as objects!
+Treat your attributes as their deserve, as objects!
 
 Installation
 ------------
