@@ -44,9 +44,9 @@ class User extends Model{
     protected function attributes(AttributesBuilder $builder){
     	
     	$builder -> string('username')
-    		-> minLength(3)
-    		-> maxLength(10)
-    		-> match("/^([a-zA-Z0-9])*$/");
+    		-> setMinLength(3)
+    		-> setMaxLength(10)
+    		-> setMatch("/^([a-zA-Z0-9])*$/");
     }
 
 }
@@ -69,4 +69,7 @@ But i told you, the attributes are objects!
     $user -> username -> length(); // 5
 ```
 
-The string field is currently using Stringy\Stringy so all methods is available
+The string field is currently using Stringy\Stringy, check all methods available here [danielstjules/Stringy]
+
+
+[stringy]:  https://github.com/danielstjules/Stringy
