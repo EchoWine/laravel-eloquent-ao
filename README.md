@@ -69,7 +69,7 @@ But i told you, the attributes are objects!
     $user -> username -> length(); // 5
 ```
 
-The string field is currently using Stringy\Stringy, check all methods available here [danielstjules/Stringy]
+The string field is currently using Stringy\Stringy, check all methods available here [danielstjules/Stringy][stringy]
 
 
 [stringy]:  https://github.com/danielstjules/Stringy
