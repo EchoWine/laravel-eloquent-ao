@@ -42,8 +42,8 @@ class StringTest extends TestCase{
         $user = User::first();
         $user -> username = 'adminne';
         
-        $this -> assertEquals($user -> username -> get() -> match("/^admin$/"),0);
-        $this -> assertEquals($user -> username -> get() -> match("/^adminne$/"),1);
+        $this -> assertEquals(7,$user -> username -> length());
+        $this -> assertEquals(1,$user -> username -> match("/^adminne$/"));
     }
 
     /**

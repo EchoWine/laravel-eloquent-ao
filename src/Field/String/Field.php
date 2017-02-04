@@ -19,7 +19,7 @@ class Field extends Basic\Field{
 	 *
 	 * @return $this
 	 */
-	public function minLength($min_length){
+	public function setMinLength($min_length){
 		$this -> min_length = $min_length;
 		return $this;
 	}
@@ -40,7 +40,7 @@ class Field extends Basic\Field{
 	 *
 	 * @return this
 	 */
-	public function maxLength($max_length){
+	public function setMaxLength($max_length){
 		$this -> max_length = $max_length;
 		return $this;
 	}
@@ -61,7 +61,7 @@ class Field extends Basic\Field{
 	 *
 	 * @return void
 	 */
-	public function match($match){
+	public function setMatch($match){
 		$this -> match = $match;
 		return $this;
 	}

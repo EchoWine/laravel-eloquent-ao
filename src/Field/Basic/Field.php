@@ -86,4 +86,8 @@ class Field{
     public function getModel(){
         return $this -> model;
     }
+
+    public function __call($method,$arguments){
+        return call_user_func_array([$this -> get(),$method],$arguments);
+    }
 }
