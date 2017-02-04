@@ -76,7 +76,7 @@ Thanks to magic methods editing the value of an attribute remains the same
     $user -> save();
 ```
 
-But i told you, the attributes are objects!
+But i told you, attributes are objects!
 
 ```php
     $user -> username -> toLowerCase(); // "admin"
