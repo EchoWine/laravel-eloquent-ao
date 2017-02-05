@@ -2,6 +2,8 @@
 
 namespace CoreWine\ORM\Field\Basic;
 
+use CoreWine\ORM\AttributesBuilder;
+
 class Field{
 
     /**
@@ -24,6 +26,13 @@ class Field{
      * @var Schema
      */
     protected $schema;
+
+    /**
+     * Builder instance.
+     *
+     * @var AttributesBuilder
+     */
+    protected $attributes_builder;
 
     /**
      * Model
@@ -62,6 +71,29 @@ class Field{
     }
 
     /**
+     * Set builder
+     *
+     * @param AttributesBuilder $attributes_builder
+     *
+     * @return $this
+     */
+    public function setAttributesBuilder(AttributesBuilder $attributes_builder){
+        $this->attributes_builder = $attributes_builder;
+    }
+
+    /**
+     * Get attributes builder
+     *
+     * @return AttributesBuilder
+     */
+    public function getAttributesBuilder(){
+        return $this->attributes_builder;
+    }
+
+
+    /**
+     * Get 
+    /**
      * Get the name
      *
      * @return string
@@ -83,7 +115,7 @@ class Field{
      * Alias @getValue
      */
     public function get(){
-        return $this->getValue();
+        return $this->getValue()->getRaw();
     }
 
     /**
@@ -113,6 +145,7 @@ class Field{
     }
 
     public function __call($method,$arguments){
-        return call_user_func_array([$this->get(),$method],$arguments);
+        return call_user_func_array([$this->getValue(),$method],$arguments);
     }
+
 }

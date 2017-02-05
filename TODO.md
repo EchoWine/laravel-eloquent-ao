@@ -1,11 +1,10 @@
 - [x] Boolean
+- [x] Number
 - [x] String
+- [ ] Price
 - [ ] Enum
 - [ ] Email
 - [ ] Password
-- [ ] Integer
-- [ ] Number
-- [ ] Price
 - [ ] Date
 - [ ] DateTime
 - [ ] Time

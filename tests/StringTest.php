@@ -18,6 +18,7 @@ class StringTest extends TestCase{
         $app -> make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
     }
+    
    /**
      * Test basic setting/getting value.
      *

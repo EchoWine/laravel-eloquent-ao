@@ -5,9 +5,9 @@ namespace CoreWine\ORM\Field\String;
 class Schema
 {
 
-    protected $min_length;
-    protected $max_length;
-    protected $match;
+    protected $min_length = null;
+    protected $max_length = null;
+    protected $match = null;
 
     /**
      * Set min length
@@ -84,13 +84,13 @@ class Schema
         $value = Stringy::create($value);
 
 
-        if($value -> length() < $this->getMinLength())
+        if($this->getMinLength() !== null && $value -> length() < $this->getMinLength())
             throw new Exceptions\TooShortException($value);
 
-        if($value -> length() > $this->getMaxLength())
+        if($this->getMaxLength() !== null && $value -> length() > $this->getMaxLength())
             throw new Exceptions\TooShortException($value);
 
-        if(!$value -> match($this->getMatch()))
+        if($this->getMatch() !== null && !$value -> match($this->getMatch()))
             throw new Exceptions\InvalidException($value);
     }
 }

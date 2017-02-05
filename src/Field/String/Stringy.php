@@ -17,4 +17,8 @@ class Stringy extends BaseStringy
     public function match($pattern){
         return preg_match($pattern,$this->str);
     }
+
+    public function getRaw(){
+        return $this->str;
+    }
 }
