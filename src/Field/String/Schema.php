@@ -2,6 +2,8 @@
 
 namespace CoreWine\ORM\Field\String;
 
+use CoreWine\ORM\Field\String\Exceptions as Exceptions;
+
 class Schema
 {
 
@@ -90,7 +92,14 @@ class Schema
         if($this->getMaxLength() !== null && $value -> length() > $this->getMaxLength())
             throw new Exceptions\TooShortException($value);
 
-        if($this->getMatch() !== null && !$value -> match($this->getMatch()))
-            throw new Exceptions\InvalidException($value);
+        $match = $this->getMatch();
+        if($match !== null){
+
+            if(is_string($match) && !$value -> match($match)){
+                throw new Exceptions\InvalidException($value);
+            }else if($match instanceof \Closure && !$match($value)){
+                throw new Exceptions\InvalidException($value);
+            }
+        }
     }
 }

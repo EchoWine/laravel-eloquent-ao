@@ -28,10 +28,14 @@ class User extends Model{
     		-> maxLength(10)
     		-> match("/^([a-zA-Z0-9])*$/");
 
+        $builder -> string('role') -> match(function($value){
+            return in_array($value,['ADMIN','USER']);
+        });
+
     	$builder -> boolean('active');
 
         $builder -> number('points') -> range(0,99);
-
+        
     }
 
 }

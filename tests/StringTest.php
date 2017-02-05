@@ -18,7 +18,7 @@ class StringTest extends TestCase{
         $app -> make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
     }
-    
+
    /**
      * Test basic setting/getting value.
      *
@@ -31,6 +31,10 @@ class StringTest extends TestCase{
         $user -> username = "foo";
             
         $this -> assertEquals("foo",$user -> username);
+
+        $user -> role = "USER";
+            
+        $this -> assertEquals("USER",$user -> role);
 
         $user -> save();
 
@@ -87,4 +91,15 @@ class StringTest extends TestCase{
     
     }
 
+    /**
+     * @expectedException CoreWine\ORM\Field\String\Exceptions\InvalidException
+     */
+    public function testRoleInvalidException(){
+
+        $user = User::first();
+
+        # Invalid match
+        $user -> role = "HAMMER"; 
+    
+    }
 }
