@@ -4,7 +4,6 @@ namespace CoreWine\ORM\Field\Collection;
 
 use Illuminate\Support\Collection as BaseCollection;
 
-use CoreWine\ORM\Field\Collection\Exceptions;
 
 class Collection extends BaseCollection
 {

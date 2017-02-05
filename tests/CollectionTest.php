@@ -104,7 +104,6 @@ class CollectionTest extends TestCase{
         $user -> gallery -> add($gallery_1);
 
         $this -> assertEquals(2,$user -> gallery -> count());
-        $this -> assertEquals('{"1":{"file":"my_path2","weight":2},"2":{"file":"my_path1","weight":1}}',$user -> gallery -> toJson());
         $this -> assertEquals(collect([1 => $gallery_2,2 => $gallery_1]) -> toArray(),$user -> gallery -> toArray());
 
         $user -> save();
