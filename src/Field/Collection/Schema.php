@@ -3,6 +3,7 @@
 namespace CoreWine\ORM\Field\Collection;
 
 use CoreWine\ORM\AttributesBuilder;
+use CoreWine\ORM\Field\Collection\Exceptions as Exceptions;
 
 class Schema
 {
@@ -67,8 +68,14 @@ class Schema
      *
      * @return boolean
      */
-    public function isValid($value){
+    public function validate($value){   
 
+        if($this->getType() !== null){
 
+            $class = "\\".$this->getType();
+
+            if(!($value instanceof $class))
+                throw new Exceptions\InvalidTypeValueException("Expected ".$this->getType()." instead of ".get_class($value));
+        }
     }
 }

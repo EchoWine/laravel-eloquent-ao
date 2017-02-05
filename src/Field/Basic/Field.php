@@ -144,6 +144,10 @@ class Field{
         return $this->model;
     }
 
+    public function getObject(){
+        return $this->getValue();
+    }
+
     public function __call($method,$arguments){
         return call_user_func_array([$this->getValue(),$method],$arguments);
     }

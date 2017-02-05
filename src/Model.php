@@ -162,8 +162,10 @@ class Model extends EloquentModel{
 
             $object = $this -> getField($key) -> getValue();
 
-            if(is_object($object))
-                return $this -> getField($key);
+            if(is_object($object)){
+
+                return $this -> getField($key) -> getObject();
+            }
 
             return $this -> getField($key) -> getValue();
         }

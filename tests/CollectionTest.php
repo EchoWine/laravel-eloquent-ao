@@ -88,26 +88,46 @@ class CollectionTest extends TestCase{
         $gallery_2 -> weight = 2;
         $gallery_2 -> file = "my_path2";
 
-        $user -> gallery = [];
-        $user -> gallery -> add($gallery_1);
+        $user -> gallery_model = [];
+        $user -> gallery_model -> add($gallery_1);
 
-        $user -> gallery = $user -> gallery -> merge([$gallery_2]);
+        $user -> gallery_model = $user -> gallery_model -> merge([$gallery_2]);
 
-        $index = $user -> gallery -> search(function($item, $key){
+        $index = $user -> gallery_model -> search(function($item, $key){
 
             return $item -> weight == 1;
         });
 
-        $user -> gallery -> get($index);
-        $user -> gallery -> pull($index); 
+        $user -> gallery_model -> get($index);
+        $user -> gallery_model -> pull($index); 
 
-        $user -> gallery -> add($gallery_1);
+        $user -> gallery_model -> add($gallery_1);
 
-        $this -> assertEquals(2,$user -> gallery -> count());
-        $this -> assertEquals(collect([1 => $gallery_2,2 => $gallery_1]) -> toArray(),$user -> gallery -> toArray());
+        $this -> assertEquals(2,$user -> gallery_model -> count());
+        $this -> assertEquals(collect([1 => $gallery_2,2 => $gallery_1]) -> toArray(),$user -> gallery_model -> toArray());
 
         $user -> save();
+
+        $user = User::first();
+
+        foreach($user -> gallery_model as $k){
+        }
     }
 
 
+    /**
+     * @expectedException CoreWine\ORM\Field\Collection\Exceptions\InvalidTypeValueException
+     */
+    public function testUnexpectedValueException(){
+
+        $user = User::first();
+
+        $gallery_1 = new \stdClass;
+        $gallery_1 -> weight = 1;
+        $gallery_1 -> file = "my_path1";
+
+        # Class type is different
+        $user -> gallery_model -> add($gallery_1);
+
+    }
 }

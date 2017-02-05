@@ -32,15 +32,52 @@ class Field extends FieldBase{
      */
     public function setValue($value){
 
+        if(is_string($value)){
+            $value = json_decode($value);
 
-        if(empty($value)){
-            $this -> value = new Collection();
+            if(json_last_error() != JSON_ERROR_NONE){
+                throw new \Exception("JSOn failed parsing");
+            }
+
+            $value = (array)$value;
+
+            $class = $this->getSchema()->getType();
+
+            if($class !== null){
+                $value_casted = [];
+
+
+                # Casting values
+                foreach($value as $n => $attributes){
+                    $l = new $class();
+                    foreach($attributes as $name => $attribute){
+                        $l -> {$name} = $attribute;
+                    }
+                    $value_casted[$n] = $l;
+                }
+
+                $value = $value_casted;
+            }
+        }
+
+        if($value instanceof Collection){
+
+
+            foreach($value as $element){
+                $this->getSchema()->validate($element);
+            }
+
+        }
+
+        if (empty($value)) {
+            $this->value = new Collection();
+            $this->value->setField($this);
             return;
         }
-            
 
-    	$this -> value = new Collection($value);
+    	$this->value = new Collection($value);
 
+        $this->value->setField($this);
     }
 
     /**
@@ -49,7 +86,8 @@ class Field extends FieldBase{
      * @return string
      */
     public function __toString(){
-        return (string)$this->getValue()->toJson();
+        return $this->getValue()->toJson();
     }
+
 
 }
