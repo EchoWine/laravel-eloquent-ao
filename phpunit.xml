@@ -4,6 +4,7 @@
       <file>tests/BooleanTest.php</file>
       <file>tests/StringTest.php</file>
       <file>tests/NumberTest.php</file>
+      <file>tests/CollectionTest.php</file>
     </testsuite>
   </testsuites>
 </phpunit>

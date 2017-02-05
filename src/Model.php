@@ -185,7 +185,7 @@ class Model extends EloquentModel{
 
         if($this -> isField($key)){
             $this -> getField($key) -> setValue($value);
-            return parent::setAttribute($key, $this -> getField($key));
+            return parent::setAttribute($key, $this -> getField($key) -> getValue());
         }
 
         return parent::setAttribute($key, $value);

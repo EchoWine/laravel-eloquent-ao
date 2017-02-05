@@ -21,6 +21,7 @@ class AttributesBuilder{
     protected $classes = [
         'string' => \CoreWine\ORM\Field\String\Field::class,
         'boolean' => \CoreWine\ORM\Field\Boolean\Field::class,
+        'collection' => \CoreWine\ORM\Field\Collection\Field::class,
         'number' => \CoreWine\ORM\Field\Number\Field::class,
     ];
 
