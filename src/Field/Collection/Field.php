@@ -49,9 +49,6 @@ class Field extends FieldBase{
      * @return string
      */
     public function __toString(){
-        echo "\n\rCollection:";
-        print_r($this->getValue()->toJson());
-        echo "\n\r";
         return (string)$this->getValue()->toJson();
     }
 
